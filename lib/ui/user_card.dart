@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:mvvm_demo/model/user.dart';
 
 class UserCard extends StatelessWidget {
-  final User user;
+  final User? user;
 
   UserCard(this.user);
   @override
@@ -31,15 +31,15 @@ class UserCard extends StatelessWidget {
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(15),
                 image: DecorationImage(
-                  image: NetworkImage(user.avatar),
+                  image: NetworkImage("${user!.avatar}"),
                 )),
           ),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              Text("ID: " + user.id.toString()),
-              Text("Nama: " + user.firstName + " " + user.lastName),
-              Text("Email: " + user.email)
+              Text("ID: " + user!.id.toString()),
+              Text("Nama: ${user!.firstName} ${user!.lastName}"),
+              Text("Email: ${user!.email}")
             ],
           )
         ],
